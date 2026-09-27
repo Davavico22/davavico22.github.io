@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David | Proyectos y Bots</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+            --card-bg: #fff;
+            --primary-color: #0056b3;
+            --hover-color: #003d82;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .profile-container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 15px;
+        }
+        h1 {
+            margin: 0 0 10px;
+            font-size: 2em;
+        }
+        p.bio {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .links-grid {
+            display: grid;
+            gap: 15px;
+        }
+        .link-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #eaeaea;
+        }
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        .link-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        .link-desc {
+            font-size: 0.9em;
+            color: #777;
+            text-align: center;
+        }
+        .footer {
+            margin-top: 50px;
+            font-size: 0.85em;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <!-- <img src="https://github.com/Davavico22.png" alt="Foto de perfil" class="profile-img"> -->
+        
+        <h1>David Valdivia Vico</h1>
+        <p class="bio">Profesor de Informática.<br>Automatizando procesos y desarrollando herramientas útiles.</p>
+
+        <div class="links-grid">
+            
+            <a href="https://t.me/TuBotDeMarkdown" target="_blank" class="link-card">
+                <span class="link-title">🤖 Conversor MarkItDown</span>
+                <span class="link-desc">Bot de Telegram que extrae texto limpio en formato Markdown de PDFs, Word y Excel, para introducirlos en los servicios de IA ahorrando una gran cantidad de TOKNES y tiempo.</span>
+            </a>
+
+            <!-- <a href="URL_DE_TU_APP_EN_PLAYSTORE" target="_blank" class="link-card">
+                <span class="link-title">📱 Biwenger Calculator</span>
+                <span class="link-desc">Calculadora y optimizador para Fantasy con almacenamiento Isar.</span>
+            </a>
+
+            <a href="URL_DE_DEPORTISTAS_O_TORNEO" target="_blank" class="link-card">
+                <span class="link-title">♟️ Torneo Intercentros & Proyectos Web</span>
+                <span class="link-desc">Iniciativas educativas, torneos de ajedrez y desarrollos en WordPress.</span>
+            </a> -->
+
+            <a href="https://ko-fi.com/tu-usuario" target="_blank" class="link-card" style="border-color: #ff5e5b;">
+                <span class="link-title">☕ Bote de Propinas (Ko-fi)</span>
+                <span class="link-desc">Apoya el mantenimiento del servidor para que los bots sigan funcionando 24/7.</span>
+            </a>
+
+        </div>
+
+        <div class="footer">
+            <p>Construido con HTML/CSS puro y alojado en GitHub Pages.</p>
+        </div>
+    </div>
+
+</body>
+</html>
