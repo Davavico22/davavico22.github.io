@@ -3,26 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutoriales Android | David Valdivia Vico</title>
-    <meta name="description" content="Guías de Android con Jetpack Compose: explicaciones, código Kotlin y ejemplos visuales de componentes.">
+    <title>Tutoriales de desarrollo de apps | David Valdivia Vico</title>
+    <meta name="description" content="Guías de Jetpack Compose y Flutter: componentes, ejemplos de Kotlin y Dart y comparaciones para aprender a desarrollar apps.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
-<body>
-    <main class="page-container">
+<body class="catalog-page">
+    <main class="page-container catalog-container">
         <a class="back-link" href="../index.html">← Volver al inicio</a>
-        <div class="page-header">
-            <h1>Tutoriales Android</h1>
-            <p>Guías de estudio para construir interfaces con Jetpack Compose.</p>
-        </div>
+        <header class="catalog-header">
+            <p class="eyebrow">Elige tu próxima interfaz</p>
+            <h1>De la idea<br><span>a la pantalla.</span></h1>
+            <p>Dos tecnologías, una forma de aprender: entender los componentes, leer el código y construir sobre lo aprendido.</p>
+            <div class="catalog-highlights"><span>Ejemplos de código</span><span>Guías paso a paso</span><span>A tu ritmo</span></div>
+        </header>
 
-        <div class="links-grid">
-            <a href="compose-componentes/" class="link-card">
-                <span class="link-title">Componentes de Jetpack Compose</span>
-                <span class="link-desc">Text, Icon, Image, botones, AppBar, formularios y el resto de componentes fundamentales de Material 3.</span>
-                <span class="card-action">Leer la guía →</span>
+        <div class="course-grid" aria-label="Guías disponibles">
+            <a href="compose-componentes/" class="course-card compose-course">
+                <div class="course-visual"><img src="../assets/compose-mark.svg" width="72" height="72" alt=""><span class="visual-code" aria-hidden="true">@Composable<br>fun TuProximaApp()</span><span class="course-platform">Android nativo</span></div>
+                <div class="course-content">
+                    <span class="resource-label">Kotlin · Material 3</span>
+                    <h2>Jetpack Compose</h2>
+                    <p>Construye interfaces declarativas con los componentes fundamentales de Android.</p>
+                    <ul class="course-topics" aria-label="Temas"><li>Texto e imágenes</li><li>Botones</li><li>Formularios</li></ul>
+                    <span class="course-footer"><span>15 componentes</span><span class="card-action">Leer la guía →</span></span>
+                </div>
+            </a>
+            <a href="flutter-componentes/" class="course-card flutter-course">
+                <div class="course-visual"><img src="../assets/flutter-mark.svg" width="72" height="72" alt=""><span class="visual-code" aria-hidden="true">Widget build(context)<br>→ tu próxima app</span><span class="course-platform">Multiplataforma</span></div>
+                <div class="course-content">
+                    <span class="resource-label">Dart · Widgets</span>
+                    <h2>Flutter</h2>
+                    <p>Descubre widgets, estado y navegación con comparaciones para quienes conocen Compose.</p>
+                    <ul class="course-topics" aria-label="Temas"><li>Widgets</li><li>Estado</li><li>Navegación</li></ul>
+                    <span class="course-footer"><span>Práctica completa</span><span class="card-action">Leer la guía →</span></span>
+                </div>
             </a>
         </div>
+        <aside class="catalog-note"><strong>¿Vienes de Jetpack Compose?</strong><p>La guía de Flutter relaciona los conceptos de ambas tecnologías para ayudarte a dar el salto.</p></aside>
 
         <div class="footer">
         </div>

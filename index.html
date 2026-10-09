@@ -4,55 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David | Proyectos y Bots</title>
-    <meta name="description" content="Herramientas de David Valdivia Vico: conversor de documentos a Markdown en Telegram y tutoriales de Android con Jetpack Compose.">
+    <meta name="description" content="Herramientas de David Valdivia Vico: conversor de documentos a Markdown en Telegram y tutoriales de Jetpack Compose y Flutter.">
     <meta property="og:title" content="David Valdivia Vico | Herramientas y tutoriales">
-    <meta property="og:description" content="Convierte documentos a Markdown y aprende a crear interfaces con Jetpack Compose.">
+    <meta property="og:description" content="Convierte documentos a Markdown y aprende a crear interfaces con Jetpack Compose y Flutter.">
     <meta property="og:type" content="website">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<body class="home-page">
 
-    <main class="profile-container" id="principal">
+    <main class="profile-container home-container" id="principal">
         <!-- <img src="https://github.com/Davavico22.png" alt="Foto de perfil" class="profile-img"> -->
 
-        <h1>David Valdivia Vico</h1>
-        <p class="bio">Profesor de Informática.<br>Herramientas y tutoriales para aprender y trabajar con documentos.</p>
+        <header class="home-header">
+            <p class="eyebrow">David Valdivia Vico · Profesor de Informática</p>
+            <h1>Aprender, crear.<br><span>Compartir lo útil.</span></h1>
+            <p class="bio">Tutoriales para construir apps y herramientas para hacer más sencillo el trabajo de cada día.</p>
+        </header>
 
-        <h2 class="section-title">Proyectos</h2>
-        <div class="links-grid">
+        <h2 class="section-title">Explora mis recursos</h2>
+        <div class="resource-grid">
 
             <section class="link-card bot-card" aria-labelledby="bot-titulo">
-                <h3 class="link-title" id="bot-titulo">🤖 Conversor MarkItDown</h3>
+                <a class="resource-main" href="https://t.me/AsistenteInicial2026_bot" target="_blank" rel="noopener noreferrer">
+                <span class="resource-label">Herramienta · Telegram</span>
+                <span class="resource-icon" aria-hidden="true">🤖</span>
+                <h3 class="link-title" id="bot-titulo">Conversor MarkItDown</h3>
                 <p class="link-desc">Extrae texto de PDF, Word y Excel en formato Markdown para preparar tus documentos antes de trabajar con IA.</p>
-                <a class="support-button" href="https://t.me/AsistenteInicial2026_bot" target="_blank" rel="noopener noreferrer">Abrir bot en Telegram ↗</a>
-            <h4 id="uso-bot">Cómo empezar</h4>
+                <span class="card-action">Abrir bot en Telegram ↗</span>
+                </a>
+            <details class="bot-help">
+            <summary>Cómo usarlo y qué tener en cuenta</summary>
             <ol class="steps">
                 <li>Abre el bot en Telegram e inicia la conversación.</li>
                 <li>Consulta sus indicaciones y envía un documento compatible.</li>
                 <li>Revisa el Markdown obtenido antes de utilizarlo.</li>
             </ol>
-            <details>
-                <summary>Antes de enviar un documento</summary>
                 <p>La calidad del resultado depende del archivo original. Comprueba especialmente tablas, imágenes y documentos escaneados. El ahorro de tokens varía según el contenido y el uso.</p>
                 <p>Esta web no detalla todavía los límites de tamaño ni los plazos de conservación de archivos del bot. Evita enviar información sensible si no conoces cómo se trata.</p>
             </details>
             </section>
-        </div>
-
-        <h2 class="section-title">Tutoriales Android</h2>
-        <div class="links-grid">
-            <a href="tutoriales/index.html" class="link-card">
-                <span class="link-title">Guías de Jetpack Compose</span>
-                <span class="link-desc">Componentes fundamentales de Compose: Text, Icon, botones, formularios y más. Iré ampliando esta sección con nuevas lecciones.</span>
-                <span class="card-action">Explorar tutoriales →</span>
-            </a>
+            <section class="link-card learning-card" aria-labelledby="guias-titulo">
+                <a class="resource-main" href="tutoriales/index.html">
+                <span class="resource-label">Aprendizaje · Desarrollo de apps</span>
+                <span class="mini-technologies" aria-hidden="true"><img src="assets/compose-mark.svg" width="40" height="40" alt=""><img src="assets/flutter-mark.svg" width="40" height="40" alt=""></span>
+                <h3 class="link-title" id="guias-titulo">Jetpack Compose y Flutter</h3>
+                <p class="link-desc">Aprende a construir interfaces con componentes, ejemplos de código y comparaciones entre ambas tecnologías.</p>
+                <span class="card-action">Explorar las guías ↗</span>
+                </a>
+                <details class="bot-help">
+                    <summary>Qué encontrarás en las guías</summary>
+                    <p>Componentes de Compose con ejemplos visuales, y widgets de Flutter con comparaciones y una práctica completa. Ambas guías incluyen índice y botones para copiar el código.</p>
+                </details>
+            </section>
         </div>
 
         <section class="support-panel" aria-labelledby="apoyo">
-            <h2 id="apoyo">Apoya el proyecto</h2>
-            <p>Si estas herramientas te resultan útiles, puedes contribuir al mantenimiento del servidor.</p>
-            <a class="support-button" href="https://ko-fi.com/dvalvic" target="_blank" rel="noopener noreferrer">☕ Invítame a un café en Ko-fi ↗</a>
+            <span class="support-icon" aria-hidden="true">☕</span>
+            <div class="support-copy">
+                <h2 id="apoyo">Un café para seguir creando</h2>
+                <p>Si estos recursos te ayudan, puedes apoyar el mantenimiento del proyecto. Cada aportación cuenta.</p>
+            </div>
+            <a class="support-button" href="https://ko-fi.com/dvalvic" target="_blank" rel="noopener noreferrer">Apoyar en Ko-fi ↗</a>
         </section>
         <footer class="footer">
         </footer>
