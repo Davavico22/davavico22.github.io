@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Componentes de Jetpack Compose | David Valdivia Vico</title>
-    <meta name="description" content="Aprende los componentes fundamentales de Jetpack Compose con ejemplos Kotlin e imágenes: Text, Icon, botones y formularios.">
+    <title>Componentes de Flutter | David Valdivia Vico</title>
+    <meta name="description" content="Aprende Flutter desde Jetpack Compose: widgets, Dart, estado, navegación y una práctica guiada.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../../css/estilos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css">
@@ -13,24 +13,15 @@
     <main class="page-container wide">
         <a class="back-link" href="../">← Tutoriales de desarrollo de apps</a>
         <div class="page-header">
-            <h1>Componentes de Jetpack Compose</h1>
-            <p>Guía de los elementos principales para construir interfaces declarativas en Android.</p>
+            <h1>Componentes de Flutter</h1>
+            <p>Widgets, estado y navegación con Dart, con comparaciones para quienes conocen Jetpack Compose.</p>
             <div class="tutorial-meta tutorial-tags" aria-label="Nivel y requisitos">
                 <span class="tutorial-tag tag-level">Nivel: iniciación</span>
-                <span class="tutorial-tag tag-requirement">Requisito: Kotlin básico</span>
-                <span class="tutorial-tag tag-requirement">Requisito: proyecto con Jetpack Compose</span>
+                <span class="tutorial-tag tag-requirement">Requisito: programación básica</span>
+                <span class="tutorial-tag tag-requirement">Requisito: entorno Flutter instalado</span>
             </div>
-            <p>Los ejemplos utilizan Material 3. Comprueba los imports y las dependencias de tu proyecto antes de ejecutarlos.</p>
+            <p>Conocer Kotlin o Jetpack Compose te ayudará a seguir las comparaciones. La guía incluye los pasos para preparar el proyecto Flutter.</p>
             <a class="back-link" href="contenido.md" download>Descargar la guía en Markdown ↓</a>
-            <details class="reading-help">
-                <summary>Cómo utilizar los ejemplos</summary>
-                <ul>
-                    <li>Localiza el componente en el índice y compara el código con la imagen de resultado.</li>
-                    <li>Si el ejemplo muestra una llamada como <code>Text(...)</code>, colócala dentro de una función marcada con <code>@Composable</code> en tu proyecto.</li>
-                    <li>Añade los imports necesarios desde Android Studio. Si aparece <code>R.drawable</code>, debes incorporar tu propio recurso gráfico.</li>
-                    <li>Cambia un parámetro cada vez y observa el resultado en la vista previa o en el emulador.</li>
-                </ul>
-            </details>
         </div>
 
         <nav class="toc" id="indice" aria-label="Índice" tabindex="-1">
@@ -38,7 +29,7 @@
             <ol id="toc-list"></ol>
         </nav>
 
-        <article id="contenido" class="markdown-body" data-source="contenido.md" aria-busy="true">
+        <article id="contenido" class="markdown-body" data-source="contenido.md" data-strip-heading-numbers="true" aria-busy="true">
             <p class="loading">Cargando tutorial…</p>
         </article>
         <noscript><p>Para ver el tutorial en esta página, activa JavaScript o <a href="contenido.md">lee el contenido en Markdown</a>.</p></noscript>
@@ -51,6 +42,8 @@
     <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/kotlin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/dart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/yaml.min.js"></script>
     <script src="../../js/render-markdown.js"></script>
 </body>
 </html>

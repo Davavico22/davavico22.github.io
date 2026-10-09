@@ -63,6 +63,11 @@
                 firstHeading.remove();
             }
             rewriteImagePaths(article);
+            if (article.dataset.stripHeadingNumbers === 'true') {
+                article.querySelectorAll('h2').forEach((heading) => {
+                    heading.textContent = heading.textContent.replace(/^\d+[.:]\s+/, '');
+                });
+            }
             buildToc(article);
             article.querySelectorAll('pre code').forEach((block) => {
                 const button = document.createElement('button');
