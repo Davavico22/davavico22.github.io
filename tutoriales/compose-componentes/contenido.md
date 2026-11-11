@@ -599,3 +599,105 @@ fun ExampleTimePicker(){
 ```
 
 <p style="text-align: center"><img src="./imagenes/timePicker.png" alt="Ejemplo de TimePicker"></p>
+
+---
+
+## TooltipBox
+
+* **Qué es:** Un contenedor de Material 3 que muestra una ayuda contextual junto a un elemento de la interfaz, llamado **ancla**.
+* **Uso:** Sirve para explicar un icono sin etiqueta, como «Guardar borrador», o aclarar qué hace una opción sin ocupar espacio permanente. Por defecto, se puede mostrar al mantener pulsado el ancla en una pantalla táctil o al pasar el puntero por encima. La pulsación normal del botón puede seguir ejecutando su acción habitual.
+
+### Parámetros principales
+
+* **`positionProvider`:** Calcula dónde aparece la ayuda respecto al ancla. Por ejemplo, `TooltipAnchorPosition.Above` pide situarla encima.
+* **`tooltip`:** Define la ayuda. Usa `PlainTooltip` para una etiqueta corta y `RichTooltip` para una explicación con título, varias líneas o una acción.
+* **`state`:** Controla la visibilidad. Crea un estado por tooltip con `rememberTooltipState()`.
+* **`content`:** Es el elemento que actúa como ancla. Se escribe en el bloque final de `TooltipBox`.
+
+### Ejemplo: ayuda breve en un botón
+
+```kotlin
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.PlainTooltip
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.TooltipAnchorPosition
+import androidx.compose.material3.TooltipBox
+import androidx.compose.material3.TooltipDefaults
+import androidx.compose.material3.rememberTooltipState
+import androidx.compose.runtime.Composable
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun BotonGuardarBorrador(onGuardar: () -> Unit) {
+    val estado = rememberTooltipState()
+
+    TooltipBox(
+        positionProvider = TooltipDefaults.rememberTooltipPositionProvider(
+            TooltipAnchorPosition.Above
+        ),
+        tooltip = { PlainTooltip { Text("Guarda sin publicar") } },
+        state = estado
+    ) {
+        TextButton(onClick = onGuardar) {
+            Text("Guardar borrador")
+        }
+    }
+}
+```
+
+**Resultado:** al mantener pulsado «Guardar borrador», aparece «Guarda sin publicar». Al tocarlo normalmente, se ejecuta `onGuardar`.
+
+### Mostrar el tooltip con un toque
+
+Si quieres que la ayuda aparezca con un toque normal, llama a `estado.show()` en el `onClick` del botón. Como `show()` es una función suspendida, ejecútala dentro de `launch`. Añade estos dos imports a los del ejemplo anterior:
+
+```kotlin
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
+```
+
+```kotlin
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun BotonAyudaBorrador() {
+    val estado = rememberTooltipState()
+    val scope = rememberCoroutineScope()
+
+    TooltipBox(
+        positionProvider = TooltipDefaults.rememberTooltipPositionProvider(
+            TooltipAnchorPosition.Above
+        ),
+        tooltip = { PlainTooltip { Text("El borrador no se publica") } },
+        state = estado
+    ) {
+        TextButton(onClick = { scope.launch { estado.show() } }) {
+            Text("¿Qué es un borrador?")
+        }
+    }
+}
+```
+
+Llama a `BotonAyudaBorrador()` desde tu pantalla. Al tocar el botón, `show()` cambia la visibilidad del mismo estado que recibe `TooltipBox`, y la ayuda aparece junto al botón.
+
+### Cuándo usar RichTooltip
+
+Para explicar con más detalle qué ocurre al guardar, sustituye el bloque `tooltip` por este y añade el import `androidx.compose.material3.RichTooltip`:
+
+```kotlin
+tooltip = {
+    RichTooltip(title = { Text("Borrador privado") }) {
+        Text("Puedes volver a editarlo antes de publicarlo.")
+    }
+},
+```
+
+Si añades un botón dentro de la ayuda, considera `rememberTooltipState(isPersistent = true)` para que no se cierre por tiempo mientras se lee. Puedes cerrarla desde la acción con `estado.dismiss()`.
+
+**Accesibilidad:** si el ancla es un `IconButton` sin texto visible, dale un nombre accesible mediante `contentDescription` en su icono. La ayuda complementa esa descripción; las instrucciones imprescindibles deben estar visibles en la interfaz.
+
+**Compatibilidad:** el ejemplo usa el proveedor con `TooltipAnchorPosition`, incorporado a partir de Material 3 `1.5.0-alpha01`. Si tu proyecto utiliza una versión anterior, consulta los proveedores disponibles en esa versión.
+
+Consulta la [guía de tooltips de Android Developers](https://developer.android.com/develop/ui/compose/components/tooltip) y las [notas de versiones de Material 3](https://developer.android.com/jetpack/androidx/releases/compose-material3).
+
+<p style="text-align: center"><img src="./imagenes/toolTipBox.png" alt="Ejemplo de TooltipBox"></p>
