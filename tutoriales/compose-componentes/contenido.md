@@ -614,7 +614,7 @@ fun ExampleTimePicker(){
 * **`state`:** Controla la visibilidad. Crea un estado por tooltip con `rememberTooltipState()`.
 * **`content`:** Es el elemento que actúa como ancla. Se escribe en el bloque final de `TooltipBox`.
 
-### Ejemplo: ayuda breve en un botón
+### Ejemplo: mostrar el tooltip con un toque
 
 ```kotlin
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -626,41 +626,12 @@ import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun BotonGuardarBorrador(onGuardar: () -> Unit) {
-    val estado = rememberTooltipState()
-
-    TooltipBox(
-        positionProvider = TooltipDefaults.rememberTooltipPositionProvider(
-            TooltipAnchorPosition.Above
-        ),
-        tooltip = { PlainTooltip { Text("Guarda sin publicar") } },
-        state = estado
-    ) {
-        TextButton(onClick = onGuardar) {
-            Text("Guardar borrador")
-        }
-    }
-}
-```
-
-**Resultado:** al mantener pulsado «Guardar borrador», aparece «Guarda sin publicar». Al tocarlo normalmente, se ejecuta `onGuardar`.
-
-### Mostrar el tooltip con un toque
-
-Si quieres que la ayuda aparezca con un toque normal, llama a `estado.show()` en el `onClick` del botón. Como `show()` es una función suspendida, ejecútala dentro de `launch`. Añade estos dos imports a los del ejemplo anterior:
-
-```kotlin
 import androidx.compose.runtime.rememberCoroutineScope
 import kotlinx.coroutines.launch
-```
 
-```kotlin
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BotonAyudaBorrador() {
+fun TooltipExample() {
     val estado = rememberTooltipState()
     val scope = rememberCoroutineScope()
 
@@ -668,7 +639,7 @@ fun BotonAyudaBorrador() {
         positionProvider = TooltipDefaults.rememberTooltipPositionProvider(
             TooltipAnchorPosition.Above
         ),
-        tooltip = { PlainTooltip { Text("El borrador no se publica") } },
+        tooltip = { PlainTooltip { Text("Guarda sin publicar") } },
         state = estado
     ) {
         TextButton(onClick = { scope.launch { estado.show() } }) {
@@ -678,7 +649,7 @@ fun BotonAyudaBorrador() {
 }
 ```
 
-Llama a `BotonAyudaBorrador()` desde tu pantalla. Al tocar el botón, `show()` cambia la visibilidad del mismo estado que recibe `TooltipBox`, y la ayuda aparece junto al botón.
+Llama a `TooltipExample()` desde tu pantalla. Al tocar «¿Qué es un borrador?», el `onClick` llama a `estado.show()` y aparece «Guarda sin publicar» encima del botón. `show()` es una función suspendida, por eso se ejecuta dentro de `scope.launch`.
 
 ### Cuándo usar RichTooltip
 
