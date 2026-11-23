@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Notas personales</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="sign_in">Entrar</string>
+    <string name="sign_out">Cerrar sesión</string>
+    <string name="private_area">Mis notas</string>
+    <string name="error_email">Revisa el correo.</string>
+    <string name="error_password">Introduce la contraseña.</string>
+    <string name="error_access">No se pudo iniciar sesión.</string>
+    <string name="language_system">Idioma del sistema</string>
+    <string name="language_spanish">Español</string>
+    <string name="language_english">Inglés</string>
+    <string name="welcome">Hola, %1$s</string>
+    <plurals name="note_count">
+        <item quantity="one">Tienes %1$d nota</item>
+        <item quantity="other">Tienes %1$d notas</item>
+    </plurals>
+</resources>

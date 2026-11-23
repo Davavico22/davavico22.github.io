@@ -31,16 +31,17 @@ El Markdown de Flutter conserva la numeración original. Su página activa `data
 - Las instrucciones del bot se integran en un desplegable dentro de su tarjeta para mantener la portada compacta; separarlas desorientaba al lector.
 - La portada presenta herramienta y aprendizaje en dos columnas (una en móvil), con protagonismo equilibrado.
 - Ambas tarjetas de portada recuperan el estilo anterior de tutoriales: degradado suave, iconos y enlace con flecha, sin botón azul. El área principal es un enlace amplio; los detalles desplegables quedan dentro de la tarjeta pero fuera del enlace. Comparten altura y comportamiento. El bloque de apoyo es una franja cálida con icono y botón propio, visualmente secundaria.
-- El catálogo usa tarjetas con cabeceras de color, ilustraciones SVG locales en `assets/`, temas y enlaces a cada guía. Los gráficos identificativos son ilustraciones simplificadas, no recursos oficiales de marca.
+- El catálogo agrupa las guías en «Componentes de interfaz» y «Configuración y personalización». Usa un solo formato de tarjeta y distingue cada plataforma con su nombre e icono local en `assets/`.
 - Ko-fi tiene un bloque de apoyo propio después de los recursos.
 - El catálogo se llama «Tutoriales de desarrollo de apps» y abarca Compose y Flutter.
 - Nivel y requisitos son etiquetas de colores, sin acción de botón.
-- Hay un botón inferior derecho para volver al índice.
+- El índice de las guías queda fijo al desplazarse en escritorio y se pliega en móvil. Destaca la sección en lectura y conserva el botón inferior derecho para volver al índice.
 - Los títulos no llevan «Composable X» ni numeración redundante. Esto no afecta a las anotaciones Kotlin.
 - Se retiró el ejercicio genérico «Ponlo en práctica» de Compose. En su lugar hay instrucciones al inicio sobre cómo utilizar los ejemplos.
 - Flutter incluye una práctica completa del autor que debe conservarse.
 - El código tiene fondo oscuro y colores diferenciados. Solo se colorean los tokens reconocidos por Highlight.js; no todos los identificadores reciben una clase.
 - Las tablas permiten desplazamiento horizontal en pantallas pequeñas.
+- Las guías de arranque, idiomas y temas usan Notas personales como ejemplo y documentan en `ejemplo/README.md` cómo incorporar sus archivos a un proyecto Android.
 
 ## Añadir una guía
 
