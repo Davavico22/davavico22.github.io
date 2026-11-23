@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="../../css/estilos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css">
 </head>
-<body>
-    <main class="page-container wide">
+<body class="reader-page">
+    <main class="page-container wide lesson-page">
         <a class="back-link" href="../">← Tutoriales de desarrollo de apps</a>
         <div class="page-header">
             <h1>Componentes de Flutter</h1>
@@ -24,14 +24,18 @@
             <a class="back-link" href="contenido.md" download>Descargar la guía en Markdown ↓</a>
         </div>
 
-        <nav class="toc" id="indice" aria-label="Índice" tabindex="-1">
-            <h2>Índice</h2>
-            <ol id="toc-list"></ol>
-        </nav>
-
-        <article id="contenido" class="markdown-body" data-source="contenido.md" data-strip-heading-numbers="true" aria-busy="true">
-            <p class="loading">Cargando tutorial…</p>
-        </article>
+        <div class="reader-layout">
+            <nav class="toc reader-toc" id="indice" aria-label="Índice" tabindex="-1" hidden>
+                <h2>En esta guía</h2>
+                <details class="toc-disclosure" open>
+                    <summary>En esta guía</summary>
+                    <ol id="toc-list"></ol>
+                </details>
+            </nav>
+            <article id="contenido" class="markdown-body" data-source="contenido.md" data-strip-heading-numbers="true" aria-busy="true">
+                <p class="loading">Cargando tutorial…</p>
+            </article>
+        </div>
         <noscript><p>Para ver el tutorial en esta página, activa JavaScript o <a href="contenido.md">lee el contenido en Markdown</a>.</p></noscript>
 
         <div class="footer">

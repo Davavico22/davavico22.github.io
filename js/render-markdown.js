@@ -32,8 +32,8 @@
             return;
         }
 
-        const headings = root.querySelectorAll('h2');
-        headings.forEach((heading) => {
+        const headings = [...root.querySelectorAll('h2')];
+        const links = headings.map((heading) => {
             const base = slugify(heading.textContent || '') || 'seccion';
             let id = base;
             let suffix = 2;
@@ -45,7 +45,56 @@
             link.textContent = heading.textContent;
             item.appendChild(link);
             tocList.appendChild(item);
+            return link;
         });
+
+        if (!headings.length) return;
+
+        const toc = tocList.closest('.reader-toc');
+        if (!toc) return;
+
+        const disclosure = toc.querySelector('details');
+        const compact = window.matchMedia('(max-width: 860px)');
+        const returnLink = document.querySelector('.back-to-index');
+        toc.hidden = false;
+
+        function syncDisclosure() {
+            disclosure.open = !compact.matches || location.hash === '#indice';
+        }
+
+        syncDisclosure();
+        compact.addEventListener('change', syncDisclosure);
+        returnLink?.addEventListener('click', () => {
+            disclosure.open = true;
+        });
+        tocList.addEventListener('click', (event) => {
+            if (compact.matches && event.target.closest('a')) {
+                disclosure.open = false;
+            }
+        });
+
+        let current = -1;
+        let frame = 0;
+
+        function updateCurrent() {
+            frame = 0;
+            const next = headings.findLastIndex((heading) => heading.getBoundingClientRect().top <= 96);
+            if (next === current) return;
+
+            links[current]?.removeAttribute('aria-current');
+            links[next]?.setAttribute('aria-current', 'location');
+            current = next;
+        }
+
+        function scheduleUpdate() {
+            if (!frame) frame = window.requestAnimationFrame(updateCurrent);
+        }
+
+        window.addEventListener('scroll', scheduleUpdate, { passive: true });
+        window.addEventListener('resize', scheduleUpdate);
+        article.addEventListener('load', scheduleUpdate, true);
+        disclosure.addEventListener('toggle', scheduleUpdate);
+        scheduleUpdate();
     }
 
     fetch(source)
