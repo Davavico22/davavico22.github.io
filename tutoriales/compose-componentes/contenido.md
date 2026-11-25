@@ -34,6 +34,310 @@ Text(
 **Resultado**
 <p style="text-align: center"><img src="./imagenes/texto.png" alt="Ejemplo de componente Text"></p>
 
+### Ejemplos de Text
+
+Copia cada función dentro de un archivo Kotlin de tu proyecto y llámala desde una pantalla Compose. Las imágenes son vistas ilustrativas; el resultado puede variar según el tema, la fuente del dispositivo y el ancho disponible.
+
+<details><summary>Imports de los ejemplos</summary>
+
+```kotlin
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.LinkAnnotation
+import androidx.compose.ui.text.ParagraphStyle
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withLink
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+```
+
+</details>
+
+#### Texto básico
+
+Pasa el nombre como parámetro y Compose lo insertará en el saludo. Para reproducir la imagen, llama a `Saludo("Ana")`.
+
+```kotlin
+@Composable
+fun Saludo(nombre: String) {
+    Text("¡Hola, $nombre!")
+}
+```
+
+<figure class="lesson-figure lesson-figure--compact">
+    <img src="./imagenes/text-saludo.png" alt="Saludo ¡Hola, Ana!">
+    <figcaption>Vista previa ilustrativa · Texto básico</figcaption>
+</figure>
+
+#### Negrita y espaciado entre letras
+
+Agrupa varios atributos en `TextStyle`. En este caso, las letras tienen un poco más de separación y se dibujan en negrita.
+
+```kotlin
+@Composable
+fun TextoDestacado() {
+    Text(
+        "Texto destacado",
+        style = TextStyle(
+            fontWeight = FontWeight.Bold,
+            fontSize = 18.sp,
+            letterSpacing = 0.5.sp
+        )
+    )
+}
+```
+
+<figure class="lesson-figure lesson-figure--compact">
+    <img src="./imagenes/text-negrita.png" alt="Texto destacado en negrita con letras separadas">
+    <figcaption>Vista previa ilustrativa · Negrita y espaciado entre letras</figcaption>
+</figure>
+
+#### Color, familia y cursiva
+
+`FontFamily.Serif` cambia la familia y `FontStyle.Italic` inclina las letras.
+
+```kotlin
+@Composable
+fun TextoEnCursiva() {
+    Text(
+        "Texto en azul",
+        color = Color.Blue,
+        fontSize = 20.sp,
+        fontFamily = FontFamily.Serif,
+        fontStyle = FontStyle.Italic
+    )
+}
+```
+
+<figure class="lesson-figure lesson-figure--compact">
+    <img src="./imagenes/text-cursiva.png" alt="Texto azul en cursiva y con serifas">
+    <figcaption>Vista previa ilustrativa · Color, familia y cursiva</figcaption>
+</figure>
+
+#### Texto largo en una sola línea
+
+Limita el ancho para poder comprobar el efecto incluso en una pantalla grande. `Ellipsis` muestra puntos suspensivos cuando la frase no cabe.
+
+```kotlin
+@Composable
+fun TituloRecortado() {
+    Text(
+        "Este título es demasiado largo para una sola línea",
+        modifier = Modifier.width(184.dp),
+        maxLines = 1,
+        overflow = TextOverflow.Ellipsis
+    )
+}
+```
+
+<figure class="lesson-figure lesson-figure--compact">
+    <img src="./imagenes/text-recorte.png" alt="Un título limitado a una línea con puntos suspensivos">
+    <figcaption>Vista previa ilustrativa · Texto largo en una sola línea</figcaption>
+</figure>
+
+#### Texto que cambia al escribir
+
+El campo actualiza el estado y el texto de debajo lo lee. Escribe «Compose» para ver el resultado de la imagen.
+
+```kotlin
+@Composable
+fun TextoEnDirecto() {
+    var entrada by remember { mutableStateOf("") }
+    Column {
+        TextField(
+            value = entrada,
+            onValueChange = { entrada = it },
+            label = { Text("Escribe aquí") }
+        )
+        Text("Has escrito: $entrada")
+    }
+}
+```
+
+<figure class="lesson-figure lesson-figure--compact">
+    <img src="./imagenes/text-estado.png" alt="Campo con la palabra Compose y el texto Has escrito: Compose debajo">
+    <figcaption>Vista previa ilustrativa · Texto que cambia al escribir</figcaption>
+</figure>
+
+#### Una acción dentro del texto
+
+Usa `LinkAnnotation.Clickable` para que solo «Ver detalles» ejecute el callback. Pasa desde la pantalla una acción como abrir un diálogo. Los dos ejemplos de enlaces requieren Compose UI 1.7 o posterior.
+
+```kotlin
+@Composable
+fun TextoConAccion(onDetalles: () -> Unit) {
+    Text(buildAnnotatedString {
+        withStyle(SpanStyle(color = Color.Red)) {
+            append("Aviso: ")
+        }
+        withLink(
+            LinkAnnotation.Clickable(
+                tag = "detalles",
+                styles = TextLinkStyles(
+                    style = SpanStyle(
+                        color = Color.Blue,
+                        fontWeight = FontWeight.Bold,
+                        textDecoration = TextDecoration.Underline
+                    )
+                ),
+                linkInteractionListener = { onDetalles() }
+            )
+        ) {
+            append("Ver detalles")
+        }
+    })
+}
+```
+
+<figure class="lesson-figure lesson-figure--compact">
+    <img src="./imagenes/text-accion.png" alt="Aviso en rojo seguido de Ver detalles en azul y subrayado">
+    <figcaption>Vista previa ilustrativa · Una acción dentro del texto</figcaption>
+</figure>
+
+#### Un enlace a una página web
+
+Usa `LinkAnnotation.Url` cuando el destino sea una dirección web. Al tocar «documentación», Compose solicita abrir la URL.
+
+```kotlin
+@Composable
+fun TextoConEnlace() {
+    Text(buildAnnotatedString {
+        append("Consulta la ")
+        withLink(
+            LinkAnnotation.Url(
+                url = "https://developer.android.com/develop/ui/compose/text",
+                styles = TextLinkStyles(
+                    style = SpanStyle(
+                        color = Color.Blue,
+                        textDecoration = TextDecoration.Underline
+                    )
+                )
+            )
+        ) {
+            append("documentación")
+        }
+        append(" de Compose.")
+    })
+}
+```
+
+<figure class="lesson-figure lesson-figure--compact">
+    <img src="./imagenes/text-enlace.png" alt="Frase con la palabra documentación en azul y subrayada">
+    <figcaption>Vista previa ilustrativa · Un enlace a una página web</figcaption>
+</figure>
+
+#### Separación entre líneas
+
+`lineHeight` fija la altura de cada línea. Este ejemplo pone tres líneas explícitas para que puedas comparar la separación al cambiar `24.sp`.
+
+```kotlin
+@Composable
+fun TextoConInterlineado() {
+    Text(
+        "Aprender Compose paso a paso\n" +
+            "ayuda a entender cómo cambia\n" +
+            "la interfaz con cada ajuste.",
+        style = TextStyle(fontSize = 18.sp, lineHeight = 24.sp)
+    )
+}
+```
+
+<figure class="lesson-figure lesson-figure--compact">
+    <img src="./imagenes/text-interlineado.png" alt="Tres líneas de texto separadas con interlineado amplio">
+    <figcaption>Vista previa ilustrativa · Separación entre líneas</figcaption>
+</figure>
+
+#### Un TextStyle reutilizable
+
+Guarda un `TextStyle` en una variable para aplicarlo a varios textos. Si el estilo forma parte del diseño de toda la app, defínelo en `MaterialTheme.typography`.
+
+```kotlin
+@Composable
+fun EtiquetaConEstilo() {
+    val estiloEtiqueta = TextStyle(
+        color = Color.DarkGray,
+        fontSize = 16.sp,
+        fontWeight = FontWeight.Bold
+    )
+    Text("Notas personales", style = estiloEtiqueta)
+}
+```
+
+<figure class="lesson-figure lesson-figure--compact">
+    <img src="./imagenes/text-estilo.png" alt="Notas personales en gris oscuro y negrita">
+    <figcaption>Vista previa ilustrativa · Un TextStyle reutilizable</figcaption>
+</figure>
+
+#### Alineación y altura por párrafo
+
+`ParagraphStyle` afecta a un párrafo completo. Aquí se centra el título dentro de los `220.dp` disponibles y se mantiene el cuerpo alineado al inicio.
+
+```kotlin
+@Composable
+fun TextoConParrafos() {
+    Text(
+        text = buildAnnotatedString {
+            withStyle(ParagraphStyle(textAlign = TextAlign.Center, lineHeight = 28.sp)) {
+                append("Mis notas")
+            }
+            withStyle(ParagraphStyle(textAlign = TextAlign.Start, lineHeight = 24.sp)) {
+                append("Organiza tus ideas\nen un solo lugar.")
+            }
+        },
+        modifier = Modifier.width(220.dp),
+        fontSize = 18.sp
+    )
+}
+```
+
+<figure class="lesson-figure lesson-figure--compact">
+    <img src="./imagenes/text-parrafo.png" alt="Título Mis notas centrado sobre dos líneas alineadas al inicio">
+    <figcaption>Vista previa ilustrativa · Alineación y altura por párrafo</figcaption>
+</figure>
+
+#### Estilo en un fragmento
+
+`SpanStyle` cambia solo los caracteres del fragmento marcado. El resto de la frase conserva su estilo.
+
+```kotlin
+@Composable
+fun TextoConTramos() {
+    Text(buildAnnotatedString {
+        append("Texto normal, ")
+        withStyle(SpanStyle(color = Color.Blue, fontWeight = FontWeight.Bold)) {
+            append("luego azul en negrita.")
+        }
+    })
+}
+```
+
+<figure class="lesson-figure lesson-figure--compact">
+    <img src="./imagenes/text-tramos.png" alt="Frase cuyo segundo fragmento aparece azul y en negrita">
+    <figcaption>Vista previa ilustrativa · Estilo en un fragmento</figcaption>
+</figure>
+
+Consulta la [guía de estilos de texto](https://developer.android.com/develop/ui/compose/text/style-text) y la [referencia de LinkAnnotation](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation) para ampliar los ejemplos.
+
+
 ---
 
 ## Icon
