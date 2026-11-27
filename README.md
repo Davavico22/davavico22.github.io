@@ -28,6 +28,8 @@ Abre `http://localhost:8000`. No necesitas instalar dependencias del proyecto. L
 | `tutoriales/compose-componentes/` | Página, Markdown e imágenes de Compose |
 | `tutoriales/compose-splash-screen/`, `compose-idiomas/` y `compose-temas/` | Guías prácticas de Compose con archivos para incorporar a un proyecto Android |
 | `tutoriales/flutter-componentes/` | Página y Markdown de Flutter |
+| `tutoriales/flutter-splash-screen/` | Guía de arranque en Android e iOS con configuración, imágenes y código Dart de ejemplo |
+| `tutoriales/flutter-idiomas/` y `tutoriales/flutter-temas/` | Guías de localización y apariencia en Flutter con código Dart y archivos de ejemplo |
 | `CNAME` y `.nojekyll` | Dominio y publicación sin Jekyll |
 | `AGENTS.md` | Instrucciones para agentes |
 | `docs/CONTEXTO.md` | Arquitectura, decisiones y mantenimiento |

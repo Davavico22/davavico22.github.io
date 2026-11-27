@@ -1,0 +1,27 @@
+{
+  "@@locale": "es",
+  "appTitle": "Notas personales",
+  "language": "Idioma",
+  "languageSystem": "Idioma del sistema",
+  "languageSpanish": "Español",
+  "languageEnglish": "Inglés",
+  "languageSaveError": "No se pudo guardar el idioma.",
+  "email": "Correo electrónico",
+  "password": "Contraseña",
+  "signIn": "Entrar",
+  "errorEmail": "Revisa el correo.",
+  "errorPassword": "Introduce la contraseña.",
+  "demoAccess": "Acceso de demostración.",
+  "welcome": "Hola, {name}",
+  "@welcome": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "noteCount": "{count, plural, =0{Tienes 0 notas} one{Tienes 1 nota} other{Tienes {count} notas}}",
+  "@noteCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  }
+}

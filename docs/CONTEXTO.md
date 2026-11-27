@@ -22,9 +22,9 @@ Las páginas de tutorial incluyen un artículo `#contenido` con `data-source="co
 
 Después resuelve las imágenes relativas al archivo fuente, crea el índice desde los `h2`, asigna identificadores únicos y añade botones para copiar código. Highlight.js resalta los lenguajes cargados en la página. El botón fijo enlaza a `#indice`.
 
-Compose carga Kotlin. Flutter carga Kotlin, Dart y YAML; también contiene bloques Bash y texto. Las versiones actuales son Marked 15.0.7 y Highlight.js 11.9.0 desde jsDelivr.
+Las guías cargan los lenguajes que usan sus bloques. La de idiomas de Flutter resalta los fragmentos ARB como JSON. Las versiones actuales son Marked 15.0.7 y Highlight.js 11.9.0 desde jsDelivr.
 
-El Markdown de Flutter conserva la numeración original. Su página activa `data-strip-heading-numbers="true"` para retirarla de los `h2` renderizados. Compose ya tiene títulos sin números en el Markdown.
+El Markdown de componentes de Flutter conserva la numeración original. Su página activa `data-strip-heading-numbers="true"` para retirarla de los `h2` renderizados. Las guías de configuración tienen títulos sin números en el Markdown.
 
 ## Decisiones de interfaz
 
@@ -41,7 +41,9 @@ El Markdown de Flutter conserva la numeración original. Su página activa `data
 - Flutter incluye una práctica completa del autor que debe conservarse.
 - El código tiene fondo oscuro y colores diferenciados. Solo se colorean los tokens reconocidos por Highlight.js; no todos los identificadores reciben una clase.
 - Las tablas permiten desplazamiento horizontal en pantallas pequeñas.
-- Las guías de arranque, idiomas y temas usan Notas personales como ejemplo y documentan en `ejemplo/README.md` cómo incorporar sus archivos a un proyecto Android.
+- Las guías de arranque, idiomas y temas de Compose usan Notas personales como ejemplo y documentan en `ejemplo/README.md` cómo incorporar sus archivos a un proyecto Android.
+- La guía de arranque de Flutter usa la misma app de ejemplo e incluye un YAML de `flutter_native_splash`, los PNG y un `main.dart` para comprobar la transición en Android e iOS.
+- Las guías de idiomas y temas de Flutter incluyen ejemplos basados en el contador inicial con `material_ui`. La de idiomas incluye también un formulario de Notas personales con ARB. El formulario y el contador de temas guardan la preferencia con `shared_preferences`.
 
 ## Añadir una guía
 

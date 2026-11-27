@@ -1,0 +1,17 @@
+{
+  "@@locale": "en",
+  "appTitle": "Personal notes",
+  "language": "Language",
+  "languageSystem": "System language",
+  "languageSpanish": "Spanish",
+  "languageEnglish": "English",
+  "languageSaveError": "Couldn't save the language.",
+  "email": "Email",
+  "password": "Password",
+  "signIn": "Sign in",
+  "errorEmail": "Check your email.",
+  "errorPassword": "Enter your password.",
+  "demoAccess": "Demo access.",
+  "welcome": "Hello, {name}",
+  "noteCount": "{count, plural, =0{You have 0 notes} one{You have 1 note} other{You have {count} notes}}"
+}
