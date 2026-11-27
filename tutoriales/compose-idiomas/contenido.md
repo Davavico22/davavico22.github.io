@@ -1,6 +1,5 @@
 # Idiomas y traducciones en Compose
 
-Si escribes «Entrar» directamente en un botón, el texto se queda en español incluso después de cambiar el idioma del teléfono. En esta guía vas a separar los textos de la interfaz, traducir una pantalla de acceso y darle al usuario tres opciones: español, inglés o el idioma del sistema.
 
 ## Separa el texto de la lógica
 
